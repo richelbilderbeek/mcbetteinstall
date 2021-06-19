@@ -1,2 +1,5 @@
 ^mcbetteinstall\.Rproj$
 ^\.Rproj\.user$
+^LICENSE$
+^\.github$
+^appveyor\.yml$

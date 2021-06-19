@@ -1,19 +1,54 @@
 Package: mcbetteinstall
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
+Title: Install 'babette'
+Version: 0.1
+Authors@R: c(
+    person(
+      "Richèl J.C.", "Bilderbeek", 
+      email = "richel@richelbilderbeek.nl", 
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0003-1107-7049")
+    ))
+Maintainer: Richèl J.C. Bilderbeek <richel@richelbilderbeek.nl>
+Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
+    Bayesian phylogenetic tool, that uses DNA/RNA/protein data
+    and many model priors to create a posterior of jointly estimated 
+    phylogenies and parameters.
+    'mcbette' allows to do a Bayesian model comparison over some
+    site and clock models, 
+    using 'babette' (<https://github.com/ropensci/babette/>).
+License: GPL-3
 RoxygenNote: 7.1.1
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://github.com/richelbilderbeek/mcbetteinstall/
+BugReports: https://github.com/richelbilderbeek/mcbetteinstall/issues
+Imports:
+    babette (>= 2.1.5),
+    beautier (>= 2.5.2),
+    beastier (>= 2.4),
+    beastierinstall,
+    curl,
+    devtools,
+    mauricer (>= 2.5),
+    mauricerinstall,
+    mcbette,
+    Rmpfr,
+    testit,
+    txtplot
+Suggests:
+    ape,
+    ggplot2,
+    hunspell,
+    knitr,
+    lintr,
+    markdown,
+    nLTT,
+    phangorn,
+    rappdirs,
+    rmarkdown,
+    spelling,
+    stringr,
+    testthat (>= 2.1.0),
+    tracerer
+Language: en-US
+Encoding: UTF-8
+SystemRequirements: BEAST2 (https://www.beast2.org/)
