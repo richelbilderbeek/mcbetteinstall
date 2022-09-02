@@ -1,0 +1,78 @@
+# For help debugging build failures open an issue on the RStudio community with the 'github-actions' tag.
+# https://community.rstudio.com/new-topic?category=Package%20development&tags=github-actions
+on:
+  push:
+  pull_request:
+  schedule:
+  - cron: "0 0 * * 4"
+
+name: R-CMD-check
+
+jobs:
+  R-CMD-check:
+    strategy:
+      fail-fast: false
+      matrix:
+        install_mcbette: [true, false]
+        os: [ubuntu-latest]
+
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: r-lib/actions/setup-r@v1
+
+      - name: Install libcurl4-openssl-dev
+        run: sudo apt install -qq libcurl4-openssl-dev
+
+      - name: Install libharfbuzz-dev libfribidi-dev
+        run: sudo apt install -qq libharfbuzz-dev libfribidi-dev
+
+      - name: Fix rJava error # from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8
+        run: sudo $(which R) CMD javareconf
+
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+          remotes::install_cran("rcmdcheck")
+          remotes::install_cran("covr")
+          remotes::install_cran("lintr")
+          remotes::install_github("MangoTheCat/goodpractice")
+          remotes::install_github("ropensci/beautier")
+          remotes::install_github("ropensci/tracerer")
+          remotes::install_github("ropensci/beastier")
+          remotes::install_github("ropensci/mauricer")
+          remotes::install_github("richelbilderbeek/beastierinstall")
+        shell: Rscript {0}
+
+      - name: Install BEAST2
+        env:
+          INSTALL_MCBETTE: ${{ matrix.install_mcbette }}
+        run: if [[ "$INSTALL_MCBETTE" == true ]]; then Rscript -e "beastierinstall::install_mcbette()"; fi
+
+      - name: Install BEAST2 NS package
+        env:
+          INSTALL_MCBETTE: ${{ matrix.install_mcbette }}
+        run: if [[ "$INSTALL_MCBETTE" == true ]]; then Rscript -e 'mauricerinstall::install_beast2_pkg("NS")'; fi
+
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        shell: Rscript {0}
+
+      - name: Test coverage
+        env:
+          INSTALL_MCBETTE: ${{ matrix.install_mcbette }}
+        run: if [[ "$INSTALL_MCBETTE" == true ]]; then Rscript -e 'covr::codecov()'; fi
+
+      - name: Lint
+        env:
+          INSTALL_MCBETTE: ${{ matrix.install_mcbette }}
+        run: if [[ "$INSTALL_MCBETTE" == false ]]; then Rscript -e 'lintr::lint_package()'; fi
+
+      - name: Report
+        run: beastier::beastier_report()
+        shell: Rscript {0}
+
