@@ -13,9 +13,9 @@ test_that("use", {
   # 00 -> 11 -> 10 -> 00 -> 10 -> 11 -> 00                                      # nolint these are state transitions
   # First digit: is BEAST2 installed
   # Second digit: is the BEAST2 NS package installed
-  expect_silent(check_mcbette_state(state_neither))
-  expect_silent(check_mcbette_state(state_beast2))
-  expect_silent(check_mcbette_state(state_beast2_ns))
+  expect_silent(mcbette::check_mcbette_state(state_neither))
+  expect_silent(mcbette::check_mcbette_state(state_beast2))
+  expect_silent(mcbette::check_mcbette_state(state_beast2_ns))
 
   # 1. 00 -> 11: Check for BEAST2 and BEAST2 NS package installed
   set_mcbette_state(

@@ -73,7 +73,7 @@ set_mcbette_state <- function(
   if (isFALSE(mcbette_state$beast2_installed) &&
     beastier::is_beast2_installed(folder_name = beast2_folder)
   ) {
-    beastier::uninstall_beast2(
+    beastierinstall::uninstall_beast2(
       folder_name = beast2_folder,
       verbose = verbose
     )

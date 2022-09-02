@@ -7,9 +7,9 @@ test_that("use", {
   state_neither   <- list(beast2_installed = FALSE, ns_installed = FALSE)
   state_beast2    <- list(beast2_installed = TRUE, ns_installed = FALSE)
   state_beast2_ns <- list(beast2_installed = TRUE, ns_installed = TRUE)
-  expect_silent(check_mcbette_state(state_neither))
-  expect_silent(check_mcbette_state(state_beast2))
-  expect_silent(check_mcbette_state(state_beast2_ns))
+  expect_silent(mcbette::check_mcbette_state(state_neither))
+  expect_silent(mcbette::check_mcbette_state(state_beast2))
+  expect_silent(mcbette::check_mcbette_state(state_beast2_ns))
 
   # 1. Check for BEAST2 and BEAST2 NS package installed
   set_mcbette_state(

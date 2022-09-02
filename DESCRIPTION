@@ -22,7 +22,6 @@ VignetteBuilder: knitr
 URL: https://github.com/richelbilderbeek/mcbetteinstall/
 BugReports: https://github.com/richelbilderbeek/mcbetteinstall/issues
 Imports:
-    beautier (>= 2.6.2),
     beastier (>= 2.4),
     beastierinstall,
     mauricer (>= 2.5),
@@ -30,6 +29,7 @@ Imports:
     mcbette
 Suggests:
     ape,
+    beautier (>= 2.6.2),
     curl,
     ggplot2,
     hunspell,

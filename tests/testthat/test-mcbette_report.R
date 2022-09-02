@@ -8,7 +8,7 @@ test_that("give output when nothing is installed", {
   )
 
   expect_message(
-    mcbette_report(beast2_folder = beast2_folder)
+    mcbette::mcbette_report(beast2_folder = beast2_folder)
   )
 
   unlink(beast2_folder, recursive = TRUE)
@@ -24,7 +24,7 @@ test_that("give output when only BEAST2 is installed", {
   )
 
   expect_message(
-    mcbette_report(beast2_folder = beast2_folder)
+    mcbette::mcbette_report(beast2_folder = beast2_folder)
   )
 
   unlink(beast2_folder, recursive = TRUE)
@@ -40,7 +40,7 @@ test_that("give output when BEAST2 and NS are installed", {
   )
 
   expect_message(
-    mcbette_report(beast2_folder = beast2_folder)
+    mcbette::mcbette_report(beast2_folder = beast2_folder)
   )
 
   unlink(beast2_folder, recursive = TRUE)

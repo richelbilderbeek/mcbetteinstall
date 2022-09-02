@@ -21,7 +21,7 @@ test_that("use BEAST2 installed at a different location", {
   fasta_filename <- system.file("extdata", "simple.fas", package = "mcbette")
 
   expect_silent(
-    est_marg_lik(
+    mcbette::est_marg_lik(
       fasta_filename = fasta_filename,
       inference_model = beautier::create_test_ns_inference_model(),
       beast2_options = beast2_options
