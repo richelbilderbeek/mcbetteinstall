@@ -9,7 +9,7 @@ test_that("set present state", {
 
 test_that("uninstall all", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
 
   before <- mcbette::get_mcbette_state()
 
@@ -25,7 +25,7 @@ test_that("uninstall all", {
 
 test_that("uninstall all", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
 
   before <- mcbette::get_mcbette_state()
 
@@ -40,7 +40,7 @@ test_that("uninstall all", {
 
 test_that("uninstall all", {
 
-  if (!beastier::is_on_ci()) return()
+  if (!beautier::is_on_ci()) return()
 
   before <- mcbette::get_mcbette_state()
 
