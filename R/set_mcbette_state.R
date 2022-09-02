@@ -62,7 +62,7 @@ set_mcbette_state <- function(
   ) {
     # Also uninstalls the global NS version :confused:
     # I guess the list of packages is a global :confused:
-    mauricer::uninstall_beast2_pkg(
+    mauricerinstall::uninstall_beast2_pkg(
       "NS",
       beast2_folder = beast2_folder,
       verbose = verbose

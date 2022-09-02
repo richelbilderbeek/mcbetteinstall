@@ -17,25 +17,20 @@ Description: 'BEAST2' (<https://www.beast2.org>) is a widely used
     site and clock models, 
     using 'babette' (<https://github.com/ropensci/babette/>).
 License: GPL-3
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 VignetteBuilder: knitr
 URL: https://github.com/richelbilderbeek/mcbetteinstall/
 BugReports: https://github.com/richelbilderbeek/mcbetteinstall/issues
 Imports:
-    babette (>= 2.1.5),
     beautier (>= 2.6.2),
     beastier (>= 2.4),
     beastierinstall,
-    curl,
-    devtools,
     mauricer (>= 2.5),
     mauricerinstall,
-    mcbette,
-    Rmpfr,
-    testit,
-    txtplot
+    mcbette
 Suggests:
     ape,
+    curl,
     ggplot2,
     hunspell,
     knitr,
