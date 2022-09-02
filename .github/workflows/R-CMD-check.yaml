@@ -33,6 +33,9 @@ jobs:
       - name: Fix rJava error # from https://travis-ci.community/t/cannot-connect-to-java-from-r/9754/8
         run: sudo $(which R) CMD javareconf
 
+      - name: Install libmpfr-dev for Rmpfr
+        run: sudo apt install -qq libmpfr-dev
+
       - name: Install dependencies
         run: |
           install.packages(c("remotes", "rcmdcheck"))
@@ -40,12 +43,15 @@ jobs:
           remotes::install_cran("rcmdcheck")
           remotes::install_cran("covr")
           remotes::install_cran("lintr")
+          remotes::install_cran("Rmpfr")
           remotes::install_github("MangoTheCat/goodpractice")
           remotes::install_github("ropensci/beautier")
           remotes::install_github("ropensci/tracerer")
           remotes::install_github("ropensci/beastier")
           remotes::install_github("ropensci/mauricer")
+          remotes::install_github("ropensci/mcbette")
           remotes::install_github("richelbilderbeek/beastierinstall")
+          remotes::install_github("richelbilderbeek/mauricerinstall")
         shell: Rscript {0}
 
       - name: Install BEAST2
