@@ -24,7 +24,7 @@ test_that("use", {
     verbose = TRUE
   )
   expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
-  expect_true(is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_silent(mcbette_self_test(beast2_folder = beast2_folder))
 
   # 2. 11 -> 10: Check for BEAST2 installed
@@ -33,8 +33,8 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(is_beast2_installed(folder_name = beast2_folder))
-  expect_true(!is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
+  expect_true(!mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_error(
     mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 'NS' package not installed"
@@ -46,7 +46,7 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(!is_beast2_installed(folder_name = beast2_folder))
+  expect_true(!beastier::is_beast2_installed(folder_name = beast2_folder))
   expect_error(
     mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 not installed"
@@ -58,8 +58,8 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(is_beast2_installed(folder_name = beast2_folder))
-  expect_true(!is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
+  expect_true(!mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_error(
     mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 'NS' package not installed"
@@ -71,8 +71,8 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(is_beast2_installed(folder_name = beast2_folder))
-  expect_true(is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
+  expect_true(mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_silent(mcbette_self_test(beast2_folder = beast2_folder))
 
   # 6. 11 Check for nothing installed
@@ -81,7 +81,7 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(!is_beast2_installed(folder_name = beast2_folder))
+  expect_true(!beastier::is_beast2_installed(folder_name = beast2_folder))
   expect_error(
     mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 not installed"

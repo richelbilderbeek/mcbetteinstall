@@ -17,8 +17,8 @@ test_that("use", {
     beast2_folder = beast2_folder,
     verbose = TRUE
   )
-  expect_true(is_beast2_installed(folder_name = beast2_folder))
-  expect_true(is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
+  expect_true(mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_silent(
     check_beast2_ns_pkg(
       beast2_bin_path = beastier::get_default_beast2_bin_path(
@@ -36,8 +36,8 @@ test_that("use", {
   )
   # The global state is changed and will not have NS installed as well
 
-  expect_true(is_beast2_installed(folder_name = beast2_folder))
-  expect_true(!is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
+  expect_true(!mcbette::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
   expect_error(
     check_beast2_ns_pkg(
       beast2_bin_path = beastier::get_default_beast2_bin_path(
