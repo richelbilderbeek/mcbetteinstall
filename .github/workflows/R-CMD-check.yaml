@@ -57,7 +57,7 @@ jobs:
       - name: Install BEAST2
         env:
           INSTALL_MCBETTE: ${{ matrix.install_mcbette }}
-        run: if [[ "$INSTALL_MCBETTE" == true ]]; then Rscript -e "beastierinstall::install_mcbette()"; fi
+        run: if [[ "$INSTALL_MCBETTE" == true ]]; then Rscript -e "beastierinstall::install_beast2()"; fi
 
       - name: Install BEAST2 NS package
         env:
