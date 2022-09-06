@@ -24,8 +24,10 @@ test_that("use", {
     verbose = TRUE
   )
   expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
-  expect_true(mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
-  expect_silent(mcbette_self_test(beast2_folder = beast2_folder))
+  expect_true(
+    mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder)
+  )
+  expect_silent(mcbette::mcbette_self_test(beast2_folder = beast2_folder))
 
   # 2. 11 -> 10: Check for BEAST2 installed
   set_mcbette_state(
@@ -34,9 +36,11 @@ test_that("use", {
     verbose = TRUE
   )
   expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
-  expect_true(!mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(
+    !mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder)
+  )
   expect_error(
-    mcbette_self_test(beast2_folder = beast2_folder),
+    mcbette::mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 'NS' package not installed"
   )
 
@@ -48,7 +52,7 @@ test_that("use", {
   )
   expect_true(!beastier::is_beast2_installed(folder_name = beast2_folder))
   expect_error(
-    mcbette_self_test(beast2_folder = beast2_folder),
+    mcbette::mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 not installed"
   )
 
@@ -59,9 +63,11 @@ test_that("use", {
     verbose = TRUE
   )
   expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
-  expect_true(!mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
+  expect_true(
+    !mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder)
+  )
   expect_error(
-    mcbette_self_test(beast2_folder = beast2_folder),
+    mcbette::mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 'NS' package not installed"
   )
 
@@ -72,8 +78,10 @@ test_that("use", {
     verbose = TRUE
   )
   expect_true(beastier::is_beast2_installed(folder_name = beast2_folder))
-  expect_true(mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder))
-  expect_silent(mcbette_self_test(beast2_folder = beast2_folder))
+  expect_true(
+    mauricer::is_beast2_ns_pkg_installed(beast2_folder = beast2_folder)
+  )
+  expect_silent(mcbette::mcbette_self_test(beast2_folder = beast2_folder))
 
   # 6. 11 Check for nothing installed
   set_mcbette_state(
@@ -83,7 +91,7 @@ test_that("use", {
   )
   expect_true(!beastier::is_beast2_installed(folder_name = beast2_folder))
   expect_error(
-    mcbette_self_test(beast2_folder = beast2_folder),
+    mcbette::mcbette_self_test(beast2_folder = beast2_folder),
     "BEAST2 not installed"
   )
 
